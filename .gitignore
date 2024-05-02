@@ -3,8 +3,6 @@
 
 # But track these specific directories
 !angle_data/
-!figures/
-!figures/schematics
 
 # Ignore these files
 Honeycomb___size_paper.pdf
