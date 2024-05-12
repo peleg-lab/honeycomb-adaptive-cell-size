@@ -1,9 +1,4 @@
-# Ignore all directories
-*/
-
-# But track these specific directories
-!angle_data/
-
-# Ignore these files
-Honeycomb___size_paper.pdf
-*.mp4
+# Ignore all input and output directories and those beginning with a period
+*/input/*
+*/output/*
+.*/
