@@ -193,7 +193,7 @@ def filter_out_plastic_base(path, left, iters):
     temp_img = cv2.imread(tiff_files[tiff_file_path][0], cv2.IMREAD_GRAYSCALE)
     plastic_base_masked_out = cv2.VideoWriter(plastic_base_masked_solution_path + path.split('/')[-1] + '.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 15, (temp_img.shape[1], temp_img.shape[0]))
 
-    print('Begin computing foreground of ' + path)
+    print('Begin plastic base segmentation of ' + path)
     for file in tqdm(sorted(tiff_files[tiff_file_path])):
         img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
         tiff_image = cv2.imread(file, -1)
@@ -209,7 +209,7 @@ def filter_out_plastic_base(path, left, iters):
         tiff_plastic_base_masked = cv2.bitwise_and(tiff_image, ((255 - plastic_mask) > 0).astype(np.uint16) * 0xffff)
         write_tiff(tiff_template, f'{plastic_base_masked_solution_path}/tiff/{file.split(os.path.sep)[-1]}', tiff_plastic_base_masked)
         plastic_base_masked_out.write(cv2.cvtColor(plastic_base_masked_image, cv2.COLOR_GRAY2BGR))
-    print('Finish computing foreground of ' + path)
+    print('Finish plastic base segmentation of ' + path)
     
     plastic_base_masked_out.release()
 
