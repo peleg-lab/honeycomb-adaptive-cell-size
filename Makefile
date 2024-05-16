@@ -2,18 +2,6 @@ ROOT_DIR = $(shell pwd)
 SCRIPTS_DIR = $(ROOT_DIR)/scripts
 DATASETS ?=  'default'
 
-setup:
-	pip install -r requirements.txt
-
-histogram-thresholding:
-	python -m scripts.histogram-thresholding.src.histogram-thresholding --datasets $(DATASETS)
-
-segment-plastic-base:
-	python -m scripts.segment-plastic-base.src.segment-plastic-base --datasets $(DATASETS)
-
-segment-plastic-cell-edges:
-	python -m scripts.segment-plastic-cell-edges.src.segment-plastic-cell-edges --datasets $(DATASETS)
-
 chain-task-directories:
 	-rm -rf $(SCRIPTS_DIR)/segment-plastic-base/input
 	ln -s $(SCRIPTS_DIR)/histogram-thresholding/output $(SCRIPTS_DIR)/segment-plastic-base/input
@@ -25,6 +13,17 @@ unchain-task-directories:
 	mkdir $(SCRIPTS_DIR)/segment-plastic-base/input
 	-unlink $(SCRIPTS_DIR)/segment-plastic-cell-edges/input
 	mkdir $(SCRIPTS_DIR)/segment-plastic-cell-edges/input
+
+histogram-thresholding:
+	python -m scripts.histogram-thresholding.src.histogram-thresholding --datasets $(DATASETS)
+
+segment-plastic-base:
+	python -m scripts.segment-plastic-base.src.segment-plastic-base --datasets $(DATASETS)
+
+segment-plastic-cell-edges:
+	python -m scripts.segment-plastic-cell-edges.src.segment-plastic-cell-edges --datasets $(DATASETS)
+
+setup: chain-task-directories
 
 run: histogram-thresholding segment-plastic-base segment-plastic-cell-edges
 
