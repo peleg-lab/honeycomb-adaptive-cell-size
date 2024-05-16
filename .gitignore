@@ -1,4 +1,6 @@
 # Ignore all input and output directories and those beginning with a period
-*/input/*
-*/output/*
+**/input/*
+**/output/*
+**/data/*
 .*/
+**/__pycache__/**
