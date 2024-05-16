@@ -128,7 +128,7 @@ For example,
 DATASETS='s_1 s_1o5' make run
 ```
 #### Python notebook
-All the code requrired to process the datasets associated with this paper is present in the notebook [honeycomb_analysis.ipynb](noteboooks/src/honeycomb_analysis.ipynb) as well.
+All the code requrired to process the datasets associated with this paper is present in the notebook [honeycomb_analysis.ipynb](notebooks/src/honeycomb_analysis.ipynb) as well.
 
 This notebook provides an interactive interface to run the code, also making it easier to tinker with. The notebook has three main sections, one for each task in the data processing pipeline:
 * Histogram thresholding
