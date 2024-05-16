@@ -139,7 +139,7 @@ where, `<dataset>` follows the same naming convention as earlier.
 
 If histogram thresholded data is being used, then the data needs to be placed in the directory:
 ```
-notebooks/data/<dataset>/hist-threhsold/tiff
+notebooks/data/<dataset>/hist_threshold/tiff
 ```
 
 Then, the corresponding section in the notebook can be run to run the desired task on the data. The output tiff images of running a task are saved in the directory:
