@@ -142,7 +142,7 @@ if __name__ == '__main__':
         if os.path.isdir(curr_dir_path + dataset_root + dataset):
             air_pixels_proportion_df_list.append(histogram_thresh(curr_dir_path + dataset_root + dataset))
 
-            print('Creating histogram thresholding figure for ' + path)
+            print('Creating histogram thresholding figure for ' + dataset)
 
             img = cv2.imread(curr_dir_path + dataset_root + dataset + '/tiff/0840.tiff', cv2.IMREAD_GRAYSCALE)
             mask, hist, thresh = get_hist_fg(img)
