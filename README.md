@@ -128,12 +128,14 @@ For example,
 DATASETS='s_1 s_1o5' make run
 ```
 #### Python notebook
-All the code requrired to process the datasets associated with this paper is present in the notebook [honeycomb_analysis.ipynb](notebooks/src/honeycomb_analysis.ipynb) as well.
+All the code requrired to process the datasets associated with this paper is present in the notebook [honeycomb_analysis.ipynb](noteboooks/src/honeycomb_analysis.ipynb) as well.
 
 This notebook provides an interactive interface to run the code, also making it easier to tinker with. The notebook has three main sections, one for each task in the data processing pipeline:
 * Histogram thresholding
 * Plastic base segmentation
 * Plastic cell edge segmentation
+
+The steps to run a Jupyter Notebook can be found in this [guide](https://docs.jupyter.org/en/latest/running.html). Before running the code in the notebook, setup the `notebooks/data` directory as described in the following instructions.
 
 The notebook is present under the directory `notebooks/` whose file structure is as follows:
 ```
@@ -148,26 +150,19 @@ The `data` directory is not present upon a fresh clone of the repo. Create this 
 mkdir notebooks/data
 ```
 
-To run the notebook, firstly, the data must be placed in the `notebooks/data` directory. If raw data is being used, place the data (TIFF images) in the directory:
-```
-notebooks/data/<dataset>/tiff
-```
-where, `<dataset>` follows the same naming convention as explained in the previous subsection.
+To run the notebook, firstly, the data must be placed in the `notebooks/data` directory. 
 
-If histogram thresholded data is being used, then the data needs to be placed in the directory:
-```
-notebooks/data/<dataset>/hist_threshold/tiff
-```
+If raw data is being used, place the data (TIFF images) in the directory `notebooks/data/<dataset>/tiff`,
+where `<dataset>` follows the same naming convention as explained in the previous subsection.
 
-Then, the corresponding section in the notebook can be run to perform the desired task on the data. The output tiff images of running a task are saved in the directory:
-```
-notebooks/data/<dataset>/<task>/tiff
-```
-A video sweep of the output is saved in:
-```
-notebooks/data/<dataset>/<task>/<dataset.mp4>
-```
-For example, if histogram thresholding is run on the dataset `s_1`, then the resulting tiff images are saved in `notebooks/data/s_1/hist_threshold/tiff` and the resulting video sweep is saved as `notebooks/data/s_1/hist_threshold/s_1.mp4`.
+If histogram thresholded data is being used, then the data needs to be placed in the directory `notebooks/data/<dataset>/hist_threshold/tiff`.
+
+If plastic base segmented data is being used, then the data needs to be placed in the directory `notebooks/data/<dataset>/plastic_base_masked/tiff`.
+
+Then, the desired section in the notebook can be run to perform the required task on the data. The output TIFF images of running a task are saved in the directory `notebooks/data/<dataset>/<task>/tiff`.
+A video sweep of the output is saved in `notebooks/data/<dataset>/<task>/<dataset>.mp4`
+
+For example, if histogram thresholding is run on the dataset `s_1`, the data (raw TIFF images) needs to be placed in the directory `notebooks/data/s_1/tiff`. The resulting TIFF images are saved in `notebooks/data/s_1/hist_threshold/tiff` and the resulting video sweep is saved as `notebooks/data/s_1/hist_threshold/s_1.mp4`.
 
 By default, all datasets present in the `notebooks/data` directory get processed by each step in the notebook. To selectively run the code on particular datasets, modify global list variable `datasets`.
 For example, if you want to process the `s_1` and `s_1o5` datasets only, then the `datasets` list should look like:

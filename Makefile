@@ -9,9 +9,9 @@ chain-task-directories:
 	ln -s $(SCRIPTS_DIR)/segment-plastic-base/output $(SCRIPTS_DIR)/segment-plastic-cell-edges/input
 
 unchain-task-directories:
-	-unlink $(SCRIPTS_DIR)/segment-plastic-base/input
+	-rm -rf $(SCRIPTS_DIR)/segment-plastic-base/input
 	mkdir $(SCRIPTS_DIR)/segment-plastic-base/input
-	-unlink $(SCRIPTS_DIR)/segment-plastic-cell-edges/input
+	-rm -rf $(SCRIPTS_DIR)/segment-plastic-cell-edges/input
 	mkdir $(SCRIPTS_DIR)/segment-plastic-cell-edges/input
 
 histogram-thresholding:
